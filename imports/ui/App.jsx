@@ -5,7 +5,6 @@ import { Task } from './Task';
 import { Tasks } from '/imports/api/tasks';
 import { TaskForm } from './TaskForm';
 import { LoginForm } from './LoginForm';
-import { RegisterForm } from './RegisterForm';
 import { LogoutButton } from './LogoutButton';
 
 const toggleChecked = ({ _id, isChecked }) => {
@@ -41,7 +40,6 @@ export const App = () => {
     return (
       <div className="simple-todos-react">
         <LoginForm/>
-        <RegisterForm/>
       </div>
     );
   }
@@ -49,18 +47,6 @@ export const App = () => {
   return (
     <div className="simple-todos-react">
       <h1>Todo List ({ incompleteTasksCount })</h1>
-
-      <div className="filters">
-        <label>
-          <input
-              type="checkbox"
-              readOnly
-              checked={ Boolean(hideCompleted) }
-              onClick={() => setHideCompleted(!hideCompleted)}
-          />
-          Hide Completed
-        </label>
-      </div>
 
       <ul className="tasks">
         { tasks.map(task => <Task
